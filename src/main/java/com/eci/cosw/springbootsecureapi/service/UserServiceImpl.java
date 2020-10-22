@@ -28,20 +28,25 @@ public class UserServiceImpl
     @PostConstruct
     private void populateSampleData()
     {
-        users.add( new User( "test@mail.com", "password", "Andres", "Perez" ) );
+        users.add(
+                new User( "test@mail.com", "password", "Andres", "Perez" ) );
+        users.add( new User( "sergio@hotmail.com", "0000", "Sergio", "Nuñez" ) );
     }
 
 
     @Override
-    public List<User> getUsers()
-    {
-        return users;
-    }
+    public List<User> getUsers() { return users; }
 
     @Override
-    public User getUser( Long id )
+    public User getUser( String mail, String contra )
     {
-        return users.get( 0 );
+        User usu = null;
+        for(User us: users){
+            if(us.getEmail().equals(mail) && us.getPassword().equals(contra)){
+                usu = us;
+            }
+        }
+        return usu;
     }
 
     @Override

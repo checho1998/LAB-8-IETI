@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.Date;
  * 8/21/17.
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping( "user" )
 public class UserController
 {
@@ -38,10 +40,11 @@ public class UserController
         }
 
         String username = login.getUsername();
-        String password = login.getPassword();
+        String contra = login.getPassword();
+        String mail = login.getEmail();
 
         //TODO implement logic to verify user credentials
-        User user = userService.getUser( 0l );
+        User user = userService.getUser( mail,contra );
 
         if ( user == null )
         {
@@ -50,7 +53,7 @@ public class UserController
 
         String pwd = user.getPassword();
 
-        if ( !password.equals( pwd ) )
+        if ( !contra.equals( pwd ) )
         {
             throw new ServletException( "Invalid login. Please check your name and password." );
         }

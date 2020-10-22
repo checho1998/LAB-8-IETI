@@ -1,5 +1,17 @@
 # 2.2 Spring Boot Secure API
 
+## Links
+
+#### Codigo Fuente:
+- BackEnd:  https://github.com/checho1998/LAB-6-IETI
+- FrontEnd: https://github.com/checho1998/LAB-3-IETI
+
+#### Despliegue en Heroku:
+
+- BackEnd: https://fierce-dusk-19636.herokuapp.com/Users/usuarios
+
+- FrontEnd:  https://la-3-ieti.herokuapp.com/
+
 **Goals**
 
 * Implement a secure API using the JSON Web Token open standard (RFC 7519). 
